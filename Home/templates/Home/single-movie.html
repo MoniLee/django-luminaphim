@@ -9,7 +9,7 @@
 	}
 </style>
 
-<title>{% block title %} {{ movie.title }} - NovaFilm {% endblock title %}</title>
+<title>{% block title %} {{ movie.title }} - LuminaPhim {% endblock title %}</title>
 
 	<!-- details -->
 	<section class="section section--head section--head-fixed section--gradient section--details-bg">
@@ -51,7 +51,7 @@
 						<div class="article__actions article__actions--details">
 							<div class="article__download">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"/></svg>
-								Download:
+								Tải về:
 								<a href="{{movie.download_link_480}}" download="{{movie.download_link_480}}">480p</a>
 								<a href="{{movie.download_link_720}}" download="{{movie.download_link_720}}">720p</a>
 								<a href="{{movie.download_link_1080}}" download="{{movie.download_link_1080}}">1080p</a>
@@ -63,8 +63,8 @@
 					<div class="col-12 col-xl-8">
 						<!-- categories -->
 						<div class="categories">
-							<h2 class="card__title">Director : <a href="{% url 'single-director' movie.director.id %}">{{ movie.director }}</a></h2>
-							<h3 class="categories__title">Genres</h3>
+							<h2 class="card__title">Đạo Diễn: <a href="{% url 'single-director' movie.director.id %}">{{ movie.director }}</a></h2>
+							<h3 class="categories__title">Thể Loại</h3>
 							{% for genre in movie.genre.all %}
 							<a href="{% url 'single-genre' genre.id %}" class="categories__item">{{genre}}</a>
 							{% endfor %}
@@ -74,7 +74,7 @@
 				</div>
 				
 				<br>
-				<h6 class="card__title" style="font-family: Georgia, 'Times New Roman', Times, serif;">Page Views : {{view}}</h6>
+				<h6 class="card__title" style="font-family: Georgia, 'Times New Roman', Times, serif;">Lượt xem: {{view}}</h6>
 
 				<div class="row">
 					<div class="col-12 col-xl-8">
@@ -84,7 +84,7 @@
 							<ul class="nav nav-tabs comments__title comments__title--tabs" id="comments__tabs" role="tablist">
 								<li class="nav-item">
 									<a class="nav-link active" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">
-										<h4>Comments</h4>
+										<h4>Bình Luận</h4>
 										<!-- <span>5</span> -->
 									</a>
 								</li>
@@ -100,9 +100,9 @@
 										{% for comment in comments_all.all %}
 										<li class="comments__item">
 											<div class="comments__autor">
-												<span class="comments__name">Name : {{ comment.name }}</span>
+												<span class="comments__name">Tên: {{ comment.name }}</span>
 											</div>
-											<p class="comments__text">Comment : {{ comment.body|linebreaksbr }}</p>
+											<p class="comments__text">Bình luận: {{ comment.body|linebreaksbr }}</p>
 										</li>
 										{% endfor %}
 										
@@ -118,11 +118,11 @@
 										</div>
 										{% endfor %}
 
-										<button type="submit" class="sign__btn">Send</button>
+										<button type="submit" class="sign__btn">Gửi</button>
 									</form>
 									{% else %}
 									<br>
-									<a href="{% url 'login' %}">You must be logged in to post a comment</a>
+									<a href="{% url 'login' %}">Bạn phải đăng nhập để gửi bình luận</a>
 									{% endif %}
 
 								</div>
@@ -139,10 +139,10 @@
 						<div class="sidebar sidebar--mt">
 							
 
-							<!-- Similar Movies -->
+							<!-- Phim Tương Tự -->
 							<div class="row row--grid">
 								<div class="col-12">
-									<h5 class="sidebar__title">Similar Movies</h5>
+									<h5 class="sidebar__title">Phim Tương Tự</h5>
 								</div>
 								
 								{% for movie in similar|slice:":4" %}
@@ -169,7 +169,7 @@
 							</div>
 							</div>
 							</div>
-							<!-- end Similar Movies -->
+							<!-- end Phim Tương Tự -->
 						</div>
 					</div>
 				</div>

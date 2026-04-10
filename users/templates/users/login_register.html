@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
-<title>{% block title %}Welcome to NovaFilm{% endblock title %}</title>
+<title>{% block title %}Chào mừng đến LuminaPhim{% endblock title %}</title>
 
 {% if page == 'register' %}
 <!-- sign in -->
@@ -24,9 +24,9 @@
                         </div>
                         {% endfor %}
                     
-                        <button class="sign__btn" type="submit" value="Register">Sign up</button>
+                        <button class="sign__btn" type="submit" value="Register">Đăng ký</button>
 
-                        <span class="sign__text">Already have an account? <a href="{% url 'login' %}">Sign in!</a></span>
+                        <span class="sign__text">Đã có tài khoản? <a href="{% url 'login' %}">Đăng nhập!</a></span>
                     </form>
                     <!-- registration form -->
                 </div>
@@ -51,17 +51,17 @@
                         </a>
 
                         <div class="sign__group">
-                            <input type="text" class="sign__input" placeholder="Username" name="username">
+                            <input type="text" class="sign__input" placeholder="Tên đăng nhập" name="username">
                         </div>
 
                         <div class="sign__group">
-                            <input type="password" class="sign__input" placeholder="Password" name="password">
+                            <input type="password" class="sign__input" placeholder="Mật khẩu" name="password">
                         </div>
                         
-                        <button class="sign__btn" type="submit" value="Log In">Login</button>
+                        <button class="sign__btn" type="submit" value="Đăng nhập">Đăng nhập</button>
 
                         
-                        <span class="sign__text">Don't have an account? <a href="{% url 'register' %}">Sign up!</a></span>
+                        <span class="sign__text">Chưa có tài khoản? <a href="{% url 'register' %}">Đăng ký!</a></span>
                     </form>
                     <!-- end authorization form -->
                 </div>
