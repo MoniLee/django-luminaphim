@@ -139,3 +139,30 @@ def SingleDirectorPage(request, pk):
     'serials_filtered' : Serials_filtered, 'movies' : Movies, 
     'genres' : Navbar_genre, 'serials' : Serials}
     return render(request, 'Home/single-director.html', context)
+
+
+
+# Feedback Page / Trang Phản hồi
+def FeedbackPage(request):
+    form = FeedbackForm()
+    
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('feedback-success')
+    
+    # get all genres for navbar
+    Navbar_genre = Genre.objects.all()
+    
+    context = {'form': form, 'genres': Navbar_genre}
+    return render(request, 'Home/feedback.html', context)
+
+
+# Feedback Success Page / Trang Thành công
+def FeedbackSuccess(request):
+    # get all genres for navbar
+    Navbar_genre = Genre.objects.all()
+    
+    context = {'genres': Navbar_genre}
+    return render(request, 'Home/feedback-success.html', context)

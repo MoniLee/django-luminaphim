@@ -8,4 +8,6 @@ urlpatterns = [
     path('serial/<str:pk>/', SingleSerialPage, name='single-serial'),
     path('genre/<str:pk>/', SingleGenrePage, name='single-genre'),
     path('director/<str:pk>/', SingleDirectorPage, name='single-director'),
+    path('feedback/', FeedbackPage, name='feedback'),
+    path('feedback-success/', FeedbackSuccess, name='feedback-success'),
 ]
