@@ -9,8 +9,8 @@ class CommentsForm(ModelForm):
         fields = ['name', 'body']
 
         label = {
-            'name' : 'Your Name',
-            'body' : 'Add a comment'
+            'name' : 'Họ Và Tên',
+            'body' : 'Thêm bình luận'
         }
     
     # set the class (css/style) for fields
@@ -28,8 +28,8 @@ class CommentsFormSerial(ModelForm):
         fields = ['name', 'body']
 
         label = {
-            'name' : 'Your Name',
-            'body' : 'Add a comment'
+            'name' : 'Họ Và Tên',
+            'body' : 'Thêm bình luận'
         }
     
     # set the class (css/style) for fields
