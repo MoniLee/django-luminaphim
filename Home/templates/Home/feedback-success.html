@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<title>{% block title %} Phản hồi thành công - LuminaPhim {% endblock title %}</title>
+
+<div class="success-container" style="padding: 60px 0; background-color: #1a1a1a; min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="success-card" style="background-color: #2a2a2a; padding: 60px 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); text-align: center;">
+                    
+                    <div style="margin-bottom: 30px;">
+                        <i class="fas fa-check-circle" style="font-size: 80px; color: #28a745;"></i>
+                    </div>
+
+                    <h2 style="color: #fff; margin-bottom: 15px; font-size: 28px;">
+                        Cảm ơn bạn!
+                    </h2>
+
+                    <p style="color: #b8b8b8; margin-bottom: 15px; font-size: 16px; line-height: 1.6;">
+                        Phản hồi của bạn đã được gửi thành công. <br/>
+                        Chúng tôi sẽ xem xét ý kiến của bạn và sẽ liên hệ nếu cần thiết.
+                    </p>
+
+                    <p style="color: #888; font-size: 14px; margin-bottom: 30px;">
+                        Cảm ơn bạn đã chọn LuminaPhim!
+                    </p>
+
+                    <a href="{% url 'Home' %}" style="
+                        display: inline-block;
+                        background-color: #ff3333;
+                        color: white;
+                        padding: 12px 40px;
+                        border: none;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        text-decoration: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.backgroundColor='#ff5555'" onmouseout="this.style.backgroundColor='#ff3333'">
+                        Về trang chủ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,122 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<title>{% block title %} Phản hồi - LuminaPhim {% endblock title %}</title>
+
+<div class="feedback-container" style="padding: 40px 0; background-color: #1a1a1a; min-height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="feedback-card" style="background-color: #2a2a2a; padding: 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);">
+                    
+                    <h2 style="color: #fff; text-align: center; margin-bottom: 10px; font-size: 32px;">
+                        <i class="fas fa-envelope"></i> Phản hồi của bạn
+                    </h2>
+                    <p style="color: #b8b8b8; text-align: center; margin-bottom: 30px;">
+                        Chúng tôi rất muốn nghe ý kiến của bạn. Vui lòng điền form bên dưới.
+                    </p>
+
+                    <form method="POST" action="{% url 'feedback' %}">
+                        {% csrf_token %}
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="{{ form.name.id_for_label }}" style="color: #fff; font-weight: bold; display: block; margin-bottom: 8px;">
+                                Họ và Tên <span style="color: #ff3333;">*</span>
+                            </label>
+                            {{ form.name }}
+                            {% if form.name.errors %}
+                                <div style="color: #ff3333; font-size: 12px; margin-top: 5px;">
+                                    {{ form.name.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="{{ form.email.id_for_label }}" style="color: #fff; font-weight: bold; display: block; margin-bottom: 8px;">
+                                Email <span style="color: #ff3333;">*</span>
+                            </label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                                <div style="color: #ff3333; font-size: 12px; margin-top: 5px;">
+                                    {{ form.email.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 30px;">
+                            <label for="{{ form.message.id_for_label }}" style="color: #fff; font-weight: bold; display: block; margin-bottom: 8px;">
+                                Nội dung phản hồi <span style="color: #ff3333;">*</span>
+                            </label>
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                                <div style="color: #ff3333; font-size: 12px; margin-top: 5px;">
+                                    {{ form.message.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button type="submit" style="
+                                background-color: #ff3333;
+                                color: white;
+                                padding: 12px 40px;
+                                border: none;
+                                border-radius: 5px;
+                                font-size: 16px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                            " onmouseover="this.style.backgroundColor='#ff5555'" onmouseout="this.style.backgroundColor='#ff3333'">
+                                Gửi phản hồi
+                            </button>
+                            <a href="{% url 'Home' %}" style="
+                                display: inline-block;
+                                margin-left: 10px;
+                                color: #b8b8b8;
+                                text-decoration: none;
+                                padding: 12px 40px;
+                                border: 1px solid #444;
+                                border-radius: 5px;
+                                transition: all 0.3s ease;
+                            " onmouseover="this.style.borderColor='#fff'; this.style.color='#fff'" onmouseout="this.style.borderColor='#444'; this.style.color='#b8b8b8'">
+                                Quay lại
+                            </a>
+                        </div>
+                    </form>
+
+                    <style>
+                        .form_title {
+                            width: 100%;
+                            padding: 12px 15px;
+                            background-color: #3a3a3a;
+                            border: 1px solid #444;
+                            border-radius: 5px;
+                            color: #fff;
+                            font-size: 14px;
+                            font-family: inherit;
+                            transition: all 0.3s ease;
+                        }
+
+                        .form_title:focus {
+                            background-color: #404040;
+                            border-color: #ff3333;
+                            outline: none;
+                            box-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
+                        }
+
+                        .form_title::placeholder {
+                            color: #777;
+                        }
+
+                        textarea.form_title {
+                            resize: vertical;
+                            min-height: 150px;
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
