@@ -166,3 +166,12 @@ def FeedbackSuccess(request):
     
     context = {'genres': Navbar_genre}
     return render(request, 'Home/feedback-success.html', context)
+
+
+# About Us Page / Trang Về Chúng Tôi
+def AboutPage(request):
+    # get all genres for navbar
+    Navbar_genre = Genre.objects.all()
+    
+    context = {'genres': Navbar_genre}
+    return render(request, 'Home/about.html', context)
