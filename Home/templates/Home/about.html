@@ -1,0 +1,183 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<title>{% block title %}Về Chúng Tôi - LuminaPhim{% endblock title %}</title>
+
+<div class="about-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="about-content">
+                    <div class="about-header">
+                        <h1 class="about-title">⭐ Giới Thiệu Về LuminaPhim</h1>
+                    </div>
+
+                    <div class="about-body">
+                        <p class="about-paragraph">
+                            LuminaPhim được ra đời với mong muốn trở thành một không gian giải trí trực tuyến dành cho tất cả những ai yêu thích điện ảnh. Chúng tôi tin rằng xem phim không chỉ là thư giãn, mà còn là cách để mỗi người mở rộng thế giới quan, cảm nhận những câu chuyện đầy cảm xúc, và tìm thấy sự đồng điệu trong từng khung hình.
+                        </p>
+
+                        <p class="about-paragraph">
+                            LuminaPhim tập trung phát triển một nền tảng xem phim <strong>nhanh – nhẹ – dễ dùng – cập nhật liên tục</strong>, hướng đến trải nghiệm của người xem ở mức trọn vẹn nhất. Với kho nội dung phong phú bao gồm phim điện ảnh Hollywood, phim châu Á, phim bộ truyền hình, anime, hoạt hình, tài liệu, show giải trí và nhiều thể loại khác, chúng tôi mang đến lựa chọn cho mọi sở thích: từ hành động kịch tính, lãng mạn nhẹ nhàng, kinh dị ám ảnh, cho đến các cuộc phiêu lưu kỳ ảo hay những bộ phim tâm lý chiều sâu.
+                        </p>
+
+                        <div class="about-priorities">
+                            <h3 class="about-subtitle">Chúng tôi luôn ưu tiên:</h3>
+                            <ul class="about-list">
+                                <li>✓ Cập nhật phim mới nhanh chóng</li>
+                                <li>✓ Giao diện dễ sử dụng trên mọi thiết bị</li>
+                                <li>✓ Tốc độ tải và phát mượt mà</li>
+                                <li>✓ Tìm kiếm thông minh và phân loại rõ ràng</li>
+                                <li>✓ Hỗ trợ người xem lưu lại danh sách yêu thích</li>
+                            </ul>
+                        </div>
+
+                        <p class="about-paragraph">
+                            LuminaPhim <strong>không lưu trữ bất kỳ nội dung video nào trên máy chủ</strong>. Tất cả phim đều được tổng hợp từ các nguồn công khai trên Internet nhằm phục vụ cộng đồng yêu phim. Mục tiêu của chúng tôi là tạo ra một hệ thống tiện lợi để bạn có thể xem phim mọi lúc, mọi nơi mà không gặp rào cản.
+                        </p>
+
+                        <p class="about-paragraph">
+                            Chúng tôi tin rằng <strong>điện ảnh là một phần của cuộc sống</strong>, và mỗi bộ phim đều là một hành trình cảm xúc.
+                            <br><strong>LuminaPhim</strong> hi vọng sẽ đồng hành cùng bạn trên những hành trình ấy bằng sự tận tâm và chất lượng tốt nhất có thể.
+                        </p>
+
+                        <p class="about-tagline">
+                            <strong>LuminaPhim – nơi giải trí tỏa sáng, nơi câu chuyện bắt đầu.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.about-section {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 60px 0;
+    min-height: calc(100vh - 200px);
+}
+
+.about-content {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-header {
+    margin-bottom: 40px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.about-title {
+    font-size: 36px;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0;
+}
+
+.about-body {
+    line-height: 1.8;
+}
+
+.about-paragraph {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-subtitle {
+    font-size: 20px;
+    color: #e0e0e0;
+    font-weight: 600;
+    margin: 30px 0 15px 0;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.about-list li {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.about-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.about-tagline {
+    font-size: 18px;
+    color: var(--accent);
+    text-align: center;
+    margin-top: 40px;
+    padding: 25px;
+    background-color: rgba(47, 128, 237, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+}
+
+body.light-theme .about-content {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .about-title,
+body.light-theme .about-tagline {
+    color: #2f80ed;
+}
+
+body.light-theme .about-paragraph,
+body.light-theme .about-subtitle,
+body.light-theme .about-list li {
+    color: #333333;
+}
+
+body.light-theme .about-tagline {
+    background-color: rgba(47, 128, 237, 0.05);
+    border-left: 4px solid #2f80ed;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: 30px 20px;
+    }
+
+    .about-title {
+        font-size: 28px;
+    }
+
+    .about-paragraph {
+        font-size: 15px;
+    }
+
+    .about-subtitle {
+        font-size: 18px;
+    }
+
+    .about-tagline {
+        font-size: 16px;
+        padding: 20px;
+    }
+}
+
+.about-title {
+    color: white;
+}
+</style>
+
+{% endblock content %}

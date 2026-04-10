@@ -10,4 +10,5 @@ urlpatterns = [
     path('director/<str:pk>/', SingleDirectorPage, name='single-director'),
     path('feedback/', FeedbackPage, name='feedback'),
     path('feedback-success/', FeedbackSuccess, name='feedback-success'),
+    path('about/', AboutPage, name='about'),
 ]
