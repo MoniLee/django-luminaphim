@@ -761,3 +761,367 @@ pre {
 :not(.theme-toggle) {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+
+/* ========================================
+   Movie Titles and Details
+   ======================================== */
+
+/* Card Titles (Movie Titles in Cards) */
+.card__title {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+.card__title a {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+.card__title a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Card List Items (Release Date, Genre, etc.) */
+.card__list li {
+  color: var(--text-secondary) !important;
+  transition: color 0.3s ease;
+}
+
+/* Movie Card Details (Home Page) */
+.home__card div h2 {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+.home__card div h2:hover {
+  color: var(--accent-color) !important;
+}
+
+.home__card:hover div h2 {
+  color: var(--accent-color) !important;
+}
+
+/* Movie Card Info (Dates, Genres) */
+.home__card div ul li {
+  color: var(--text-secondary) !important;
+  transition: color 0.3s ease;
+}
+
+.home__card div ul li a {
+  color: var(--link-color) !important;
+  transition: color 0.3s ease;
+}
+
+.home__card div ul li a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Article Content (Single Movie Page) */
+.article__content h1,
+.article__content h2,
+.article__content h3,
+.article__content h4,
+.article__content h5,
+.article__content h6 {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+.article__content p {
+  color: var(--text-secondary) !important;
+  transition: color 0.3s ease;
+}
+
+.article__content .list li {
+  color: var(--text-secondary) !important;
+  transition: color 0.3s ease;
+}
+
+.article__content .list li a {
+  color: var(--link-color) !important;
+}
+
+.article__content .list li a:hover {
+  color: var(--link-hover) !important;
+}
+
+.article__content svg {
+  fill: var(--text-secondary) !important;
+  stroke: var(--text-secondary) !important;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Heading Elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: var(--link-color) !important;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Section Titles */
+.section__title,
+.section__title a {
+  color: var(--text-primary) !important;
+}
+
+.section__title a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Categories */
+.categories__item {
+  color: var(--link-color) !important;
+  transition: color 0.3s ease;
+}
+
+.categories__item:hover {
+  color: var(--link-hover) !important;
+}
+
+.categories__title {
+  color: var(--text-primary) !important;
+}
+
+/* Card Info and Stats */
+.card__info {
+  color: var(--text-secondary) !important;
+}
+
+/* Dashboard Box Titles */
+.dashbox__title h3 {
+  color: var(--text-primary) !important;
+}
+
+.dashbox__title h3 svg {
+  fill: var(--text-primary) !important;
+  stroke: var(--text-primary) !important;
+}
+
+/* Section List */
+.section__list ol h4 {
+  color: var(--text-primary) !important;
+}
+
+/* Profile Metadata */
+.profile__meta h3 {
+  color: var(--text-primary) !important;
+}
+
+/* List Styles */
+.list {
+  color: var(--text-primary) !important;
+}
+
+.list li {
+  color: var(--text-secondary) !important;
+}
+
+.list li a {
+  color: var(--link-color) !important;
+}
+
+.list li a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* ========================================
+   Page Content Elements
+   ======================================== */
+
+/* Article Elements */
+.article {
+  color: var(--text-primary) !important;
+}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+  color: var(--text-primary) !important;
+}
+
+.article a {
+  color: var(--link-color) !important;
+}
+
+.article a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Comments and Reviews */
+.comments__title {
+  color: var(--text-primary) !important;
+}
+
+.comments__title h4 {
+  color: var(--text-primary) !important;
+}
+
+.comments__list {
+  color: var(--text-primary) !important;
+}
+
+.comments__item {
+  color: var(--text-secondary) !important;
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+}
+
+.comments__item-title {
+  color: var(--text-primary) !important;
+}
+
+.comments__item .comments__item-name {
+  color: var(--accent-color) !important;
+}
+
+.comments__item .comments__item-time {
+  color: var(--text-secondary) !important;
+}
+
+.comments__item .comments__item-text {
+  color: var(--text-secondary) !important;
+}
+
+/* Button and Link Styles */
+.article__download {
+  color: var(--text-primary) !important;
+}
+
+.article__download a {
+  color: var(--accent-color) !important;
+  transition: color 0.3s ease;
+}
+
+.article__download a:hover {
+  color: var(--accent-hover) !important;
+}
+
+.article__download svg {
+  fill: var(--text-primary) !important;
+  stroke: var(--text-primary) !important;
+}
+
+/* Article Trailer */
+.article__trailer {
+  color: var(--accent-color) !important;
+}
+
+.article__trailer svg {
+  stroke: var(--accent-color) !important;
+}
+
+.article__trailer:hover {
+  color: var(--accent-hover) !important;
+}
+
+.article__trailer:hover svg {
+  stroke: var(--accent-hover) !important;
+}
+
+/* General Text Elements */
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+p {
+  color: var(--text-primary) !important;
+}
+
+/* Small Text */
+small,
+.small {
+  color: var(--text-secondary) !important;
+}
+
+/* Spinner and Loading */
+.spinner-text {
+  color: var(--text-primary) !important;
+}
+
+/* Nav Elements */
+nav {
+  color: var(--text-primary) !important;
+}
+
+nav a {
+  color: var(--link-color) !important;
+}
+
+nav a:hover {
+  color: var(--link-hover) !important;
+}
+
+.nav-link {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-color) !important;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--accent-color) !important;
+}
+
+/* Breadcrumb Items */
+.breadcrumb-item {
+  color: var(--text-primary) !important;
+}
+
+.breadcrumb-item a {
+  color: var(--link-color) !important;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* Section Content */
+.section {
+  color: var(--text-primary) !important;
+}
+
+.section p {
+  color: var(--text-secondary) !important;
+}
+
+.section a {
+  color: var(--link-color) !important;
+}
+
+.section a:hover {
+  color: var(--link-hover) !important;
+}
