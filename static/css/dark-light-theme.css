@@ -1,0 +1,763 @@
+/* ========================================
+   Dark/Light Theme Toggle CSS
+   ======================================== */
+
+/* ========================================
+   CSS Variables for Dark Theme (Default)
+   ======================================== */
+:root {
+  /* Colors */
+  --bg-primary: #131720;
+  --bg-secondary: #151f30;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b8b8b8;
+  --text-muted: #8a8a8a;
+  
+  /* Borders */
+  --border-color: #151f30;
+  --border-light: #2a3a4f;
+  
+  /* Accent Colors */
+  --accent-color: #2f80ed;
+  --accent-hover: #1e5acc;
+  --accent-light: #4a95ff;
+  
+  /* Header and Navigation */
+  --header-bg: #131720;
+  --header-border: #151f30;
+  
+  /* Input Elements */
+  --input-bg: #1a2332;
+  --input-border: #2a3a4f;
+  --placeholder-color: #8a8a8a;
+  
+  /* Scrollbar */
+  --scrollbar-track: #151f30;
+  --scrollbar-thumb: #2f80ed;
+  
+  /* Links */
+  --link-color: #2f80ed;
+  --link-hover: #4a95ff;
+  
+  /* Buttons */
+  --button-bg: #2a3a4f;
+  --button-text: #e0e0e0;
+  --button-hover-bg: #3a4a5f;
+  
+  /* Cards and Containers */
+  --card-bg: #151f30;
+  --card-border: #2a3a4f;
+  
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   CSS Variables for Light Theme
+   ======================================== */
+body.light-mode {
+  /* Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+  
+  /* Borders */
+  --border-color: #e0e0e0;
+  --border-light: #d0d0d0;
+  
+  /* Accent Colors */
+  --accent-color: #2f80ed;
+  --accent-hover: #1e5acc;
+  --accent-light: #0052a3;
+  
+  /* Header and Navigation */
+  --header-bg: #ffffff;
+  --header-border: #e0e0e0;
+  
+  /* Input Elements */
+  --input-bg: #f5f5f5;
+  --input-border: #d0d0d0;
+  --placeholder-color: #999999;
+  
+  /* Scrollbar */
+  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: #2f80ed;
+  
+  /* Links */
+  --link-color: #0066cc;
+  --link-hover: #0052a3;
+  
+  /* Buttons */
+  --button-bg: #e8e8e8;
+  --button-text: #1a1a1a;
+  --button-hover-bg: #d0d0d0;
+  
+  /* Cards and Containers */
+  --card-bg: #f8f9fa;
+  --card-border: #d0d0d0;
+  
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   Global Styles with Variables
+   ======================================== */
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Prevent transition on toggle button itself */
+.theme-toggle {
+  transition: color 0.3s ease !important;
+}
+
+/* Body */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html {
+  background-color: var(--bg-primary);
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: var(--link-hover);
+}
+
+/* ========================================
+   Header and Navigation
+   ======================================== */
+
+.header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header--fixed {
+  background-color: var(--header-bg);
+}
+
+.header__nav {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+}
+
+.header__nav-link {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.header__nav-link svg {
+  stroke: var(--text-primary);
+  fill: var(--text-primary);
+  transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+.header__nav-link:hover,
+.header__nav-link[aria-expanded="true"] {
+  color: var(--accent-color);
+}
+
+.header__nav-link:hover svg,
+.header__nav-link[aria-expanded="true"] svg {
+  stroke: var(--accent-color);
+  fill: var(--accent-color);
+}
+
+.header__nav-menu {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.header__nav-menu a {
+  color: var(--text-primary);
+}
+
+.header__nav-menu a:hover {
+  color: var(--accent-color);
+  background-color: var(--card-bg);
+}
+
+/* ========================================
+   Form Elements
+   ======================================== */
+
+.header__form {
+  background-color: var(--header-bg) !important;
+}
+
+.header__form-input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--input-border);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.header__form-input {
+  background-color: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border: none !important;
+}
+
+.header__form-input::placeholder {
+  color: var(--placeholder-color) !important;
+}
+
+.header__form-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.1);
+}
+
+.header__form-input::placeholder,
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="search"]::placeholder,
+textarea::placeholder {
+  color: var(--placeholder-color);
+}
+
+.header__form-btn svg {
+  fill: var(--text-primary) !important;
+  transition: fill 0.3s ease !important;
+}
+
+.header__form-btn:hover svg {
+  fill: var(--accent-color) !important;
+}
+
+.header__form-close svg {
+  fill: var(--text-primary) !important;
+  transition: fill 0.3s ease !important;
+}
+
+.header__form-close:hover svg {
+  fill: var(--accent-color) !important;
+}
+
+::-webkit-input-placeholder {
+  color: var(--placeholder-color);
+}
+
+::-moz-placeholder {
+  color: var(--placeholder-color);
+}
+
+:-moz-placeholder {
+  color: var(--placeholder-color);
+}
+
+:-ms-input-placeholder {
+  color: var(--placeholder-color);
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+
+button,
+.btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.header__form-btn {
+  color: var(--text-primary);
+}
+
+.header__form-btn:hover {
+  color: var(--accent-color);
+}
+
+.header__search {
+  color: var(--text-primary);
+}
+
+.header__search:hover {
+  color: var(--accent-color);
+}
+
+.header__form-close {
+  color: var(--text-primary);
+}
+
+/* ========================================
+   Header User Section
+   ======================================== */
+
+.header__user {
+  color: var(--text-primary);
+}
+
+.header__user:hover {
+  color: var(--accent-color);
+}
+
+.header__user svg {
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ========================================
+   Scrollbar
+   ======================================== */
+
+body::-webkit-scrollbar {
+  width: 16px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  outline: 1px solid var(--scrollbar-track);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-hover);
+}
+
+/* ========================================
+   Text Selection
+   ======================================== */
+
+::-moz-selection {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+::selection {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+/* ========================================
+   Cards and Containers
+   ======================================== */
+
+.card,
+.catalog-item,
+.section,
+.box,
+.modal-content,
+.container-fluid {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.card,
+.modal-content {
+  border: 1px solid var(--card-border);
+}
+
+/* ========================================
+   Dropdowns and Menus
+   ======================================== */
+
+.dropdown-menu {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.dropdown-menu a {
+  color: var(--text-primary);
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--card-bg);
+  color: var(--accent-color);
+}
+
+.dropdown-item {
+  color: var(--text-primary);
+}
+
+.dropdown-item:hover {
+  background-color: var(--card-bg);
+  color: var(--accent-color);
+}
+
+.dropdown-item.active {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+  color: var(--link-color);
+}
+
+.footer a:hover {
+  color: var(--link-hover);
+}
+
+/* ========================================
+   Tables
+   ======================================== */
+
+table {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+table thead {
+  background-color: var(--bg-secondary);
+}
+
+table th {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+table td {
+  border: 1px solid var(--border-color);
+}
+
+table tr:hover {
+  background-color: var(--card-bg);
+}
+
+/* ========================================
+   Pagination
+   ======================================== */
+
+.pagination a,
+.pagination .page-link,
+.pagination button {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.pagination a:hover,
+.pagination .page-link:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+}
+
+.pagination .active .page-link,
+.pagination .active a {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* ========================================
+   Theme Toggle Button
+   ======================================== */
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 20px;
+  padding: 8px 12px;
+  margin: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-color);
+}
+
+.theme-toggle:focus {
+  outline: none;
+}
+
+.theme-toggle-icon {
+  display: inline-block;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark Mode - Show Moon Icon */
+.theme-toggle.dark-mode .theme-toggle-icon::before {
+  content: "🌙";
+}
+
+.theme-toggle.dark-mode .theme-toggle-icon::after {
+  display: none;
+}
+
+/* Light Mode - Show Sun Icon */
+.theme-toggle.light-mode .theme-toggle-icon::before {
+  content: "☀️";
+}
+
+.theme-toggle.light-mode .theme-toggle-icon::after {
+  display: none;
+}
+
+/* ========================================
+   Alerts and Messages
+   ======================================== */
+
+.alert {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.alert__close {
+  color: var(--text-primary);
+}
+
+.alert__close:hover {
+  color: var(--accent-color);
+}
+
+/* Success Alert */
+.alert--success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+body.light-mode .alert--success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+body.dark-mode .alert--success {
+  background-color: #1a4620;
+  color: #90ee90;
+  border-color: #2d6a34;
+}
+
+/* Error/Danger Alert */
+.alert--error,
+.alert--danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+body.light-mode .alert--error,
+body.light-mode .alert--danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+body.dark-mode .alert--error,
+body.dark-mode .alert--danger {
+  background-color: #4d1b1b;
+  color: #ff6b6b;
+  border-color: #662a2a;
+}
+
+/* Warning Alert */
+.alert--warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-color: #ffeeba;
+}
+
+body.light-mode .alert--warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-color: #ffeeba;
+}
+
+body.dark-mode .alert--warning {
+  background-color: #664d1a;
+  color: #ffd700;
+  border-color: #8a6e1a;
+}
+
+/* Info Alert */
+.alert--info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-color: #bee5eb;
+}
+
+body.light-mode .alert--info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-color: #bee5eb;
+}
+
+body.dark-mode .alert--info {
+  background-color: #0d3c47;
+  color: #87ceeb;
+  border-color: #1a5f70;
+}
+
+/* ========================================
+   Modals
+   ======================================== */
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+}
+
+.modal-header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.modal-header .close {
+  color: var(--text-primary);
+}
+
+.modal-header .close:hover {
+  color: var(--accent-color);
+}
+
+.modal-footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ========================================
+   Breadcrumbs
+   ======================================== */
+
+.breadcrumb {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.breadcrumb a {
+  color: var(--link-color);
+}
+
+.breadcrumb a:hover {
+  color: var(--link-hover);
+}
+
+.breadcrumb-item.active {
+  color: var(--text-primary);
+}
+
+/* ========================================
+   Additional Elements
+   ======================================== */
+
+/* Code blocks */
+code,
+pre {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Badge/Labels */
+.badge {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.badge-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Badges and Tags */
+.tag,
+.label,
+.badge {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* Loading spinner */
+.spinner-border {
+  border-color: var(--border-color);
+  border-right-color: var(--accent-color);
+}
+
+/* Progress bars */
+.progress {
+  background-color: var(--bg-secondary);
+}
+
+.progress-bar {
+  background-color: var(--accent-color);
+}
+
+/* Ensure smooth transitions are applied consistently */
+:not(.theme-toggle) {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
