@@ -13,4 +13,7 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Only serve media locally (Cloudinary handles it in production)
+if not settings.CLOUDINARY_URL:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

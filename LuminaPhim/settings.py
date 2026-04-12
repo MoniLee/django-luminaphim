@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l8=p*z1pu_1v=&3wx)&0p%*=nfhi++-1q(o(7e$pezj(y4h^a+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ["*"]
 
@@ -170,8 +170,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# Cloudinary Configuration for Media Files on Render
-if os.environ.get('CLOUDINARY_URL'):
+# Cloudinary Configuration for Media Files
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+if CLOUDINARY_URL:
+    # Parse cloudinary://api_key:api_secret@cloud_name
+    import re
+    match = re.match(r'cloudinary://(\d+):([^@]+)@(.+)', CLOUDINARY_URL)
+    if match:
+        CLOUDINARY_STORAGE = {
+            'CLOUD_NAME': match.group(3),
+            'API_KEY': match.group(1),
+            'API_SECRET': match.group(2),
+        }
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 else:
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
