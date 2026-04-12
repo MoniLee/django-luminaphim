@@ -13,3 +13,8 @@ class VideoCloudinaryStorage(MediaCloudinaryStorage):
             'tags': 'media',
         }
         return cloudinary.uploader.upload(content, **options)
+
+    def url(self, name):
+        url = super().url(name)
+        # Replace /image/upload/ with /video/upload/ for video files
+        return url.replace('/image/upload/', '/video/upload/')
