@@ -1,5 +1,14 @@
 from django.db import models
 import uuid
+from django.conf import settings
+
+
+def get_trailer_storage():
+    if settings.CLOUDINARY_URL:
+        from Home.storage import VideoCloudinaryStorage
+        return VideoCloudinaryStorage()
+    from django.core.files.storage import FileSystemStorage
+    return FileSystemStorage()
 
 # Create your models here.
 # Movies
@@ -13,7 +22,7 @@ class HomePageModel(models.Model):
     poster = models.ImageField(upload_to='Posters/')
     movie_page_poster = models.ImageField(upload_to='Posters/MoviePage/', null=True, blank=True)
     summary = models.TextField(max_length=1600)
-    trailer_file = models.FileField(upload_to='Trailers/', null=True, blank=True)
+    trailer_file = models.FileField(upload_to='Trailers/', null=True, blank=True, storage=get_trailer_storage)
     download_link_1080 = models.CharField(max_length=650, null=True, blank=True)
     download_link_720 = models.CharField(max_length=650, null=True, blank=True)
     download_link_480 = models.CharField(max_length=650, null=True, blank=True)
@@ -39,7 +48,7 @@ class Serial(models.Model):
     poster = models.ImageField(upload_to='Posters/')
     seriel_page_poster = models.ImageField(upload_to='Posters/SerialPage/', null=True, blank=True)
     summary = models.TextField(max_length=1600)
-    trailer_file = models.FileField(upload_to='Trailers/', null=True, blank=True)
+    trailer_file = models.FileField(upload_to='Trailers/', null=True, blank=True, storage=get_trailer_storage)
     page_view = models.IntegerField(default=1)
     seasons = models.ManyToManyField('Season', default=None)
     episodes = models.ManyToManyField('Episode', default=None)
