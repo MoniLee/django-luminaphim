@@ -119,6 +119,23 @@ DATABASES = {
     }
 }
 
+# Use PostgreSQL on Render if DATABASE_URL is set
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    import re
+    m = re.match(r'postgresql://([^:]+):([^@]+)@([^/]+)/(.+)', DATABASE_URL)
+    if m:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': m.group(4),
+                'USER': m.group(1),
+                'PASSWORD': m.group(2),
+                'HOST': m.group(3),
+                'PORT': '5432',
+            }
+        }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
