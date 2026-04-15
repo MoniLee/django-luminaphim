@@ -94,8 +94,9 @@ def UserProfile(request):
     # get movies and series, then filter them by created date
     movies = HomePageModel.objects.filter().order_by('-created') 
     series = Serial.objects.filter().order_by('-created')
-    # get 10 random movies for random section 
-    random_movies = random.sample(list(HomePageModel.objects.all()), 10)
+    # Lấy random phim cho phần random - lấy tối đa số phim hiện có
+    all_movies = list(HomePageModel.objects.all())
+    random_movies = random.sample(all_movies, min(10, len(all_movies)))
     # profile form
     form = ProfileUser(instance=profile)
 
